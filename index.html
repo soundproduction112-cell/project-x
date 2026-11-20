@@ -137,6 +137,16 @@ body.phone-mode .dpad button{min-width:44px;min-height:44px;touch-action:manipul
 body.phone-mode .maze-cell,body.phone-mode .memory-pad,body.phone-mode .sweep-pad,body.phone-mode .dial-controls button,body.phone-mode .hitbtn{touch-action:manipulation;user-select:none;-webkit-tap-highlight-color:transparent}
 @media(orientation:landscape) and (max-height:520px){body.phone-mode .dpad{grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px)}}
 </style>
+<style>
+/* Scope phone sidebars so their left/right styles never touch maze controls. */
+body.phone-mode .layout>.left{display:none}
+body.phone-mode .layout>.right{display:block;grid-column:auto;min-height:0;overflow-y:auto;padding:8px 6px;border:0;border-left:1px solid var(--line)}
+body.phone-mode .dpad{grid-template-areas:". up ." "left down right";grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px)}
+body.phone-mode .dpad .up{display:grid;grid-area:up;grid-column:auto;grid-row:auto;place-items:center;padding:0;border:1px solid #465650;overflow:hidden}
+body.phone-mode .dpad .left{display:grid;grid-area:left;grid-column:auto;grid-row:auto;place-items:center;min-width:44px;min-height:44px;padding:0;border:1px solid #465650;overflow:hidden}
+body.phone-mode .dpad .down{display:grid;grid-area:down;grid-column:auto;grid-row:auto;place-items:center;padding:0;border:1px solid #465650;overflow:hidden}
+body.phone-mode .dpad .right{display:grid;grid-area:right;grid-column:auto;grid-row:auto;place-items:center;min-width:44px;min-height:44px;padding:0;border:1px solid #465650;overflow:hidden}
+</style>
 </head>
 <body>
 <section class="mode-picker" id="modePicker"><div class="mode-card"><div class="mode-brand">X // WORLD MESH</div><h1>Choose your device</h1><p>Pick how you want to play. Phone mode is designed for landscape.</p><div class="mode-options"><button class="mode-choice" data-mode="pc"><strong>PC</strong><span>Full laptop view</span></button><button class="mode-choice" data-mode="phone"><strong>PHONE</strong><span>Landscape touch view</span></button></div></div></section>
