@@ -91,6 +91,40 @@ body.phone-mode .kbd-hinge{height:7px}
 }
 @media(orientation:portrait){body.phone-mode #gameFrame{display:none}body.phone-mode .rotate-prompt{display:grid;place-items:center;position:fixed;inset:0;z-index:20;padding:24px;background:#090d10;color:var(--text);text-align:center}}
 </style>
+<style>
+/* Keep every phone puzzle in view; the decorative keyboard is desktop-only. */
+body.phone-mode #gameFrame{height:100dvh;overflow:hidden}
+body.phone-mode .laptop{flex:1;min-height:0}
+body.phone-mode .window{flex:1;min-height:0;overflow:hidden}
+body.phone-mode .layout{grid-template-columns:minmax(0,1fr) minmax(145px,20vw);flex:1;min-height:0;overflow:hidden}
+body.phone-mode .left{display:none}
+body.phone-mode .center{display:flex;flex-direction:column;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:8px}
+body.phone-mode .center-head{flex:none}
+body.phone-mode .challenge{flex:0 0 auto;min-height:0;overflow:visible;padding:9px}
+body.phone-mode .game-content{flex:none;min-height:200px;overflow:visible}
+body.phone-mode .keyboard,body.phone-mode .kbd-hinge{display:none}
+body.phone-mode .right{display:block;min-height:0;overflow-y:auto;padding:8px 6px}
+body.phone-mode .cat-widget{padding:4px 2px}
+body.phone-mode .cat-title{font-size:9px}
+body.phone-mode .cat-caption{font-size:10px}
+body.phone-mode .happy-label{font-size:9px}
+body.phone-mode .cat-note{font-size:8px}
+body.phone-mode .maze{width:min(34vh,170px)}
+body.phone-mode .dpad{grid-template-columns:repeat(3,34px);grid-template-rows:repeat(2,31px);gap:3px;margin:6px auto}
+body.phone-mode .tile{min-height:40px;padding:6px;font-size:14px}
+body.phone-mode .sweep-pad{min-width:48px;min-height:46px}
+body.phone-mode .qte-wrap{margin:18px auto 0}
+body.phone-mode .hitbtn{min-height:42px;margin-top:10px}
+body.phone-mode .dial-controls button{width:29px;height:29px}
+@media(orientation:landscape) and (max-height:520px){
+ body.phone-mode .bar{height:18px}
+ body.phone-mode .center-head{margin-bottom:4px}
+ body.phone-mode .challenge{padding:7px}
+ body.phone-mode .game-content{min-height:170px;margin-top:5px}
+ body.phone-mode .maze{width:min(30vh,145px)}
+ body.phone-mode .dpad{grid-template-columns:repeat(3,30px);grid-template-rows:repeat(2,27px);margin:4px auto}
+}
+</style>
 </head>
 <body>
 <section class="mode-picker" id="modePicker"><div class="mode-card"><div class="mode-brand">X // WORLD MESH</div><h1>Choose your device</h1><p>Pick how you want to play. Phone mode is designed for landscape.</p><div class="mode-options"><button class="mode-choice" data-mode="pc"><strong>PC</strong><span>Full laptop view</span></button><button class="mode-choice" data-mode="phone"><strong>PHONE</strong><span>Landscape touch view</span></button></div></div></section>
